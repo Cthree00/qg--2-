@@ -10,145 +10,145 @@ int main()
     do
     {
         show();
-        printf("ÇëÊäÈëÑ¡Ïî");
-        scanf_s("%d", &choice);
+        printf("è¯·è¾“å…¥é€‰é¡¹");
+        
         num = judge();
         system("cls");
         switch (num)
         {
-        case 1://´´½¨¿ÕÁ´±í
+        case 1://åˆ›å»ºç©ºé“¾è¡¨
         {
             if (InitList_DuL(&head))
             {
-                printf("¿ÕÁ´±í´´½¨³É¹¦\n");
+                printf("ç©ºé“¾è¡¨åˆ›å»ºæˆåŠŸ\n");
             }
             else
             {
-                printf("¿ÕÁ´±í´´½¨Ê§°Ü\n");
+                printf("ç©ºé“¾è¡¨åˆ›å»ºå¤±è´¥\n");
             }
             break;
         }
-        case 2://Ïú»ÙÁ´±í
+        case 2://é”€æ¯é“¾è¡¨
         {
             DestroyList_DuL(&head);
-            printf("Á´±íÏú»Ù³É¹¦\n");
+            printf("é“¾è¡¨é”€æ¯æˆåŠŸ\n");
             break;
         }
-        case 3://Í·²å·¨²åÈëÊı¾İ
+        case 3://å¤´æ’æ³•æ’å…¥æ•°æ®
         {
             if (head == NULL)
             {
-                printf("Á´±íÎ´´´½¨£¬ÇëÏÈ´´½¨Á´±í\n");
+                printf("é“¾è¡¨æœªåˆ›å»ºï¼Œè¯·å…ˆåˆ›å»ºé“¾è¡¨\n");
             }
             else
             {
                 DuLinkedList newNode;
                 if (InitList_DuL(&newNode))
                 {
-                    printf("ÇëÊäÈëÊı¾İ£º");
+                    printf("è¯·è¾“å…¥æ•°æ®ï¼š");
                     scanf_s("%d", &newNode->data);
                     if (InsertBeforeList_DuL(head, newNode))
                     {
-                        printf("Êı¾İ²åÈë³É¹¦\n");
+                        printf("æ•°æ®æ’å…¥æˆåŠŸ\n");
                     }
                     else
                     {
-                        printf("Êı¾İ²åÈëÊ§°Ü\n");
+                        printf("æ•°æ®æ’å…¥å¤±è´¥\n");
                     }
                 }
                 else
                 {
-                    printf("Êı¾İ²åÈëÊ§°Ü\n");
+                    printf("æ•°æ®æ’å…¥å¤±è´¥\n");
                 }
             }
             break;
         }
-        case 4://Î²²å·¨²åÈëÊı¾İ
+        case 4://å°¾æ’æ³•æ’å…¥æ•°æ®
         {
             if (head == NULL)
             {
-                printf("Á´±íÎ´´´½¨£¬ÇëÏÈ´´½¨Á´±í\n");
+                printf("é“¾è¡¨æœªåˆ›å»ºï¼Œè¯·å…ˆåˆ›å»ºé“¾è¡¨\n");
             }
             else
             {
                 DuLinkedList newNode;
                 if (InitList_DuL(&newNode))
                 {
-                    printf("ÇëÊäÈëÊı¾İ£º");
+                    printf("è¯·è¾“å…¥æ•°æ®ï¼š");
                     scanf_s("%d", &newNode->data);
                     if (InsertAfterList_DuL(head, newNode))
                     {
-                        printf("Êı¾İ²åÈë³É¹¦\n");
+                        printf("æ•°æ®æ’å…¥æˆåŠŸ\n");
                     }
                     else
                     {
-                        printf("Êı¾İ²åÈëÊ§°Ü\n");
+                        printf("æ•°æ®æ’å…¥å¤±è´¥\n");
                     }
                 }
                 else
                 {
-                    printf("Êı¾İ²åÈëÊ§°Ü\n");
+                    printf("æ•°æ®æ’å…¥å¤±è´¥\n");
                 }
             }
             break;
         }
         
-        case 5://É¾³ıÊı¾İ
+        case 5://åˆ é™¤æ•°æ®
         {
             if (head == NULL)
             {
-                printf("Á´±íÎ´´´½¨£¬ÇëÏÈ´´½¨Á´±í\n");
+                printf("é“¾è¡¨æœªåˆ›å»ºï¼Œè¯·å…ˆåˆ›å»ºé“¾è¡¨\n");
             }
             else
             {
-                printf("ÄãÏëÉ¾³ıÄÄ¸öÊı¾İ£º");
+                printf("ä½ æƒ³åˆ é™¤å“ªä¸ªæ•°æ®ï¼š");
                 scanf_s("%d", &num);
                 if (DeleteList_DuL(head, &num))
                 {
-                    printf("Êı¾İÉ¾³ı³É¹¦\n");
+                    printf("æ•°æ®åˆ é™¤æˆåŠŸ\n");
                 }
                 else
                 {
-                    printf("Êı¾İÉ¾³ıÊ§°Ü\n");
+                    printf("æ•°æ®åˆ é™¤å¤±è´¥\n");
                 }
             }
             break;
         }
-        case 6://±éÀúÁ´±í
+        case 6://éå†é“¾è¡¨
         {
             TraverseList_DuL(head);
             break;
         }
-        case 7://²åÈë½áµã
+        case 7://æ’å…¥ç»“ç‚¹
         {
             int i = 0;
             ElemType e = 0;
-            printf("ÇëÊäÈëÒª²åÈëµÄ½áµãÎ»ÖÃºÍÊıÖµ");
+            printf("è¯·è¾“å…¥è¦æ’å…¥çš„ç»“ç‚¹ä½ç½®å’Œæ•°å€¼");
             scanf_s("%d,%d", &i, &e);
             ListInsert(head,  i, ElemType e)
         }
-        case 8://°´Öµ²éÕÒ
+        case 8://æŒ‰å€¼æŸ¥æ‰¾
         {
             ElemType a;
-            printf("ÇëÊäÈëÒª²éÕÒµÄÖµ");
+            printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„å€¼");
             scanf_s("%d", a);
             LocateElem(head, ElemType a);
         }
-        case 9://°´Î»²éÕÒ
+        case 9://æŒ‰ä½æŸ¥æ‰¾
         {
             int i = 0;
-            printf("ÇëÊäÈëÒª²éÕÒµÄÎ»ÖÃ");
+            printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„ä½ç½®");
             scanf_s("%d", &i);
             GetElem(head,  i)
         }
-        case 10://ÍË³ö³ÌĞò 
+        case 10://é€€å‡ºç¨‹åº 
         {
             DestroyList_DuL(&head);
             break;
         }
         default:
         {
-            printf("ÇëÖØĞÂÊäÈëÊı×Ö!(1-7)\n");
+            printf("è¯·é‡æ–°è¾“å…¥æ•°å­—!(1-7)\n");
             break;
         }
         }
