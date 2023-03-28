@@ -10,15 +10,16 @@ using namespace std;
 
 int main()
 {
-    string infix;		//ÖĞ×º±í´ïÊ½
-    string postfix;	//ºó×º±í´ïÊ½
+    string infix;		//ä¸­ç¼€è¡¨è¾¾å¼
+    string postfix;	//åç¼€è¡¨è¾¾å¼
     int result = 0;
 
-    printf("ÇëÊäÈëÖĞ×º±í´ïÊ½£º");
+    printf("è¯·è¾“å…¥ä¸­ç¼€è¡¨è¾¾å¼ï¼š");
     getline(cin, infix);
     postfix = Trans(infix);
-    cout << "×ª»»ºóµÄºó×º±í´ïÊ½Îª" << postfix << endl;
+    cout << "è½¬æ¢åçš„åç¼€è¡¨è¾¾å¼ä¸º" << postfix << endl;
     result = EvaluatePostfix(postfix);
-    printf("¼ÆËã½á¹ûÊÇ£º%d\n", result);
+    printf("è®¡ç®—ç»“æœæ˜¯ï¼š%d\n", result);
+    system("pause");
     return 0;
 }
