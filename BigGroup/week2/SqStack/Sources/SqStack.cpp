@@ -5,7 +5,7 @@
 #include"SqStack.h"
 using namespace std;
 
-//³õÊ¼»¯Ë³ĞòÕ»
+//åˆå§‹åŒ–é¡ºåºæ ˆ
 void Init(SqStack& S)
 {
     S.base = new ElemType[MAXSIZE];
@@ -13,7 +13,7 @@ void Init(SqStack& S)
 
 }
 
-//ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ
+//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 int Empty(SqStack  S)
 {
     if (S.top == S.base)
@@ -22,10 +22,10 @@ int Empty(SqStack  S)
         return 0;
 }
 
-//ÅĞ¶ÏÊÇ·ñÕ»Âú
+//åˆ¤æ–­æ˜¯å¦æ ˆæ»¡
 int SqStack_Full(SqStack S)
 {
-    if (S.top-S.base==MAXSIZE)	//Õ»Âú
+    if (S.top-S.base==MAXSIZE)	//æ ˆæ»¡
     {
         return 1;
     }
@@ -35,10 +35,10 @@ int SqStack_Full(SqStack S)
     }
 }
 
-//ÈëÕ»
+//å…¥æ ˆ
 int Push(SqStack &S, ElemType x)
 {
-    //Èç¹ûÕ»Âú
+    //å¦‚æœæ ˆæ»¡
     if (S.top-S.base==MAXSIZE)
     {
         printf("OverFlow!\n");
@@ -48,10 +48,10 @@ int Push(SqStack &S, ElemType x)
     return 1;
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 int Pop(SqStack& S, ElemType& x)
 {
-    //Èç¹ûÕ»¿Õ
+    //å¦‚æœæ ˆç©º
     if (S.top==S.base)
     {
         printf("Error!\n");
@@ -64,10 +64,10 @@ int Pop(SqStack& S, ElemType& x)
     }
 }
 
-//»ñÈ¡Õ»¶¥ÔªËØ
+//è·å–æ ˆé¡¶å…ƒç´ 
 int GetTop(SqStack&S, ElemType& x)
 {
-    //Èç¹ûÕ»¿Õ
+    //å¦‚æœæ ˆç©º
     if (S.top==S.base)
     {
         printf("Error!\n");
@@ -81,24 +81,24 @@ int GetTop(SqStack&S, ElemType& x)
     }
 }
 
-//ÖĞ×º±í´ïÊ½×ªºó×º±í´ïÊ½
+//ä¸­ç¼€è¡¨è¾¾å¼è½¬åç¼€è¡¨è¾¾å¼
 string Trans(string &express)
 {
-    char operation;	//´æ´¢ÔËËã·û
-    char oprand;	//´æ´¢²Ù×÷Êı»òÔËËã·û
+    char operation;	//å­˜å‚¨è¿ç®—ç¬¦
+    char oprand;	//å­˜å‚¨æ“ä½œæ•°æˆ–è¿ç®—ç¬¦
     SqStack S;
     string postfix;
     int offset = 0;
     Init(S);
     int len = express.length();
     postfix = (char*)malloc(len * sizeof(char));
-    //±éÀúÖĞ×º±í´ïÊ½£¬Èç¹ûÊÇÊı×Ö£¬¾ÍÖ±½Ó´æÈëºó×º±í´ïÊ½£¬·ñÔò¸ù¾İÔËËã·ûµÄÓÅÏÈ¼¶½øĞĞ³öÈëÕ»²Ù×÷
+    //éå†ä¸­ç¼€è¡¨è¾¾å¼ï¼Œå¦‚æœæ˜¯æ•°å­—ï¼Œå°±ç›´æ¥å­˜å…¥åç¼€è¡¨è¾¾å¼ï¼Œå¦åˆ™æ ¹æ®è¿ç®—ç¬¦çš„ä¼˜å…ˆçº§è¿›è¡Œå‡ºå…¥æ ˆæ“ä½œ
     for (int i = 0; express[i] != '\0'; i++)
     {
         oprand = express[i];
         switch (oprand)
         {
-            //Èç¹ûÊÇ'+'¡¢'-'£¬Ôò½«Õ»ÖĞ'('Ç°µÄÔËËã·û³öÕ»²¢´æÈëºó×º±í´ïÊ½
+            //å¦‚æœæ˜¯'+'ã€'-'ï¼Œåˆ™å°†æ ˆä¸­'('å‰çš„è¿ç®—ç¬¦å‡ºæ ˆå¹¶å­˜å…¥åç¼€è¡¨è¾¾å¼
         case '+':
         case '-':
             while (!Empty(S))
@@ -116,7 +116,7 @@ string Trans(string &express)
             }
             Push(S, oprand);
             break;
-            //Èç¹ûÊÇ'*'¡¢'/'£¬Ôò½«Õ»¶¥Îª'*'¡¢'/'µÄÔËËã·û³öÕ»²¢´æÈëºó×º±í´ïÊ½
+            //å¦‚æœæ˜¯'*'ã€'/'ï¼Œåˆ™å°†æ ˆé¡¶ä¸º'*'ã€'/'çš„è¿ç®—ç¬¦å‡ºæ ˆå¹¶å­˜å…¥åç¼€è¡¨è¾¾å¼
         case '*':
         case '/':
             while (!Empty(S))
@@ -134,11 +134,11 @@ string Trans(string &express)
             }
             Push(S, oprand);
             break;
-            //Èç¹ûÊÇ¡®£¨¡¯£¬Ôò½«¡®£¨¡¯ÈëÕ»
+            //å¦‚æœæ˜¯â€˜ï¼ˆâ€™ï¼Œåˆ™å°†â€˜ï¼ˆâ€™å…¥æ ˆ
         case '(':
             Push(S, oprand);
             break;
-            //Èç¹ûÊÇ¡®£©¡¯£¬Ôò½«¡®£©¡¯Ç°µÄÔËËã·û³öÕ»²¢´æÈëºó×º±í´ïÊ½ÖĞ
+            //å¦‚æœæ˜¯â€˜ï¼‰â€™ï¼Œåˆ™å°†â€˜ï¼‰â€™å‰çš„è¿ç®—ç¬¦å‡ºæ ˆå¹¶å­˜å…¥åç¼€è¡¨è¾¾å¼ä¸­
         case ')':
             while (!Empty(S))
             {
@@ -155,12 +155,12 @@ string Trans(string &express)
                 }
             }
             break;
-            //Èç¹ûÊÇÊı×Ö£¬ÔòÖ±½Ó´æÈëºó×º±í´ïÊ½
+            //å¦‚æœæ˜¯æ•°å­—ï¼Œåˆ™ç›´æ¥å­˜å…¥åç¼€è¡¨è¾¾å¼
         default:
             postfix[offset++] = oprand;
         }
     }
-    //±éÀúÍêÖĞ×º±í´ïÊ½ºó£¬½«Õ»ÖĞÊ£ÓàÔËËã·û³öÕ»£¬²¢´æÈëºó×º±í´ïÊ½ÖĞ
+    //éå†å®Œä¸­ç¼€è¡¨è¾¾å¼åï¼Œå°†æ ˆä¸­å‰©ä½™è¿ç®—ç¬¦å‡ºæ ˆï¼Œå¹¶å­˜å…¥åç¼€è¡¨è¾¾å¼ä¸­
     while (!Empty(S))
     {
         Pop(S, operation);
@@ -170,22 +170,22 @@ string Trans(string &express)
     return postfix;
 }
 
-//½«×Ö·û×ª»»ÎªÊı×Ö
+//å°†å­—ç¬¦è½¬æ¢ä¸ºæ•°å­—
 int ChangeCharToData(char c)
 {
     return c - '0';
 }
 
-//½«Êı×Ö×ª»»Îª×Ö·û
+//å°†æ•°å­—è½¬æ¢ä¸ºå­—ç¬¦
 char ChangeDataToChar(int x)
 {
     return x + 48;
 }
 
-//¸ù¾İ²Ù×÷·ûºÍ²Ù×÷Êı½øĞĞËÄÔòÔËËã
+//æ ¹æ®æ“ä½œç¬¦å’Œæ“ä½œæ•°è¿›è¡Œå››åˆ™è¿ç®—
 int Arithmetical(int operand1, int operand2, char operation)
 {
-    int result;
+    int result=0;
     switch (operation)
     {
     case '+':
@@ -204,22 +204,22 @@ int Arithmetical(int operand1, int operand2, char operation)
     return result;
 }
 
-//¸ù¾İ²Ù×÷·û½øĞĞÇóÖµÔËËã
+//æ ¹æ®æ“ä½œç¬¦è¿›è¡Œæ±‚å€¼è¿ç®—
 void Calculate(SqStack &S, char operation)
 {
-    char operand1, operand2;	//´æ´¢²Ù×÷Êı1ºÍ²Ù×÷Êı2
+    char operand1, operand2;	//å­˜å‚¨æ“ä½œæ•°1å’Œæ“ä½œæ•°2
     int result;
     Pop(S, operand2);
     Pop(S, operand1);
-    //¸ù¾İÔËËã·ûoperation£¬µ÷ÓÃArithmeticalº¯Êı½øĞĞÔËËã
+    //æ ¹æ®è¿ç®—ç¬¦operationï¼Œè°ƒç”¨Arithmeticalå‡½æ•°è¿›è¡Œè¿ç®—
     result = Arithmetical(ChangeCharToData(operand1), ChangeCharToData(operand2), operation);
     Push(S, ChangeDataToChar(result));
 }
 
-//¸ù¾İºó×º±í´ïÊ½ÇóÖµ
+//æ ¹æ®åç¼€è¡¨è¾¾å¼æ±‚å€¼
 int EvaluatePostfix(string &express)
 {
-    char oprand;	//´æ´¢ºó×º±í´ïÊ½ÖĞµÄÔªËØ
+    char oprand;	//å­˜å‚¨åç¼€è¡¨è¾¾å¼ä¸­çš„å…ƒç´ 
     SqStack S;
     char result;
     Init(S);
