@@ -5,13 +5,13 @@
 typedef int ElemType;
 typedef int Status;
 typedef struct Qnode {
-	ElemType data;    //Êı¾İÓò
-	struct Qnode* next;  //Ö¸ÕëÓò
+	ElemType data;    //æ•°æ®åŸŸ
+	struct Qnode* next;  //æŒ‡é’ˆåŸŸ
 }QNode;
 
 typedef struct {
-	QNode * front;  //Í·Ö¸Õë
-	QNode * rear; //Î²Ö¸Õë
+	QNode * front;  //å¤´æŒ‡é’ˆ
+	QNode * rear; //å°¾æŒ‡é’ˆ
 }LinkQueue;
 
 int Init(LinkQueue* Q);
@@ -22,7 +22,7 @@ int GetHead(LinkQueue Q, ElemType* e);
 int LengthLQueue(LinkQueue* Q);
 void ClearLQueue(LinkQueue* Q);
 Status TraverseLQueue(const LinkQueue* Q, void (*foo)(void* q));
-void LPrint(void* q);
+void LPrint(int q);
 
 
 
