@@ -46,10 +46,33 @@ int main()
 			GetTop(S);
 			break;
 		}
+		case 5:
+		{
+			if (clearLStack(&S))
+				printf("清空成功");
+			else
+				printf("清空失败");
+
+			break;
+		}
+		case 6:
+			if (destroyLStack(&S))
+				printf("销毁成功");
+			else
+				printf("销毁失败");
+			break;
+		case 7:
+		{
+			int length;
+			length=LStackLength(S);
+			printf("栈的长度为%d", length);
+		}
+
 		
 
 
+
 		}
-	} while (num!=5);
+	} while (num!=8);
 }
 

@@ -9,7 +9,10 @@ void show()
 	printf(">>>2、入栈           \n");
 	printf(">>>3、出栈           \n");
 	printf(">>>4、取栈顶元素     \n");
-	printf(">>>5、退出           \n");
+	printf(">>>5、清空           \n");
+	printf(">>>6、销毁           \n");
+	printf(">>>7、获取长度           \n");
+	printf(">>>8、退出           \n");
 }
 int judge() //检测输入是否合法
 {
@@ -79,4 +82,34 @@ SElemType GetTop(LinkStack S)
 		printf("栈顶元素为%d", S->data);
 	else
 		printf("栈为空");
+}
+
+Status clearLStack(LinkStack* s)
+{
+	LinkStack p;
+	if((*s)==NULL)return 0;
+	while ((*s))
+	{
+		p = (*s);
+		(*s) = (*s)->next;
+		free(p);
+	}
+	return 1;
+}
+
+Status destroyLStack(LinkStack* s)
+{
+	clearLStack(s);
+}
+
+Status LStackLength(LinkStack s)
+{
+	LinkStack p;
+	int length = 0;
+	p = s;
+	while (p!=NULL)
+	{
+		p = p->next;
+		length++;
+	}
 }
